@@ -28,7 +28,7 @@ def exif_transpose(img, names, obj):
         orientation = exif_data[exif_orientation_tag]
 
         # Handle EXIF Orientation
-        print("orientation:",orientation)
+        # print("orientation:",orientation)
         if orientation == 1:
             # Normal image - nothing to do!
             objs = names_objs(names, obj)
@@ -121,11 +121,11 @@ def load_image_file(file, anno_path, mode='RGB'):
 
 if __name__=='__main__':
     from write_xml import *
-    picture_path = "data_demo/demo1.jpg"
-    annotation_path = "data_demo/demo1.xml"
+    picture_path = "data/demo.jpg"
+    annotation_path = "data/demo.xml"
     img, objs = load_image_file(picture_path, annotation_path, mode='RGB')
-    picture_save_path = "results/demo1.jpg"
-    anno_save_path = "results/demo1.xml"
+    picture_save_path = "result/demo.jpg"
+    anno_save_path = "result/demo.xml"
     im = PIL.Image.fromarray(img)
     im.save(picture_save_path)
     img_info = img.shape
