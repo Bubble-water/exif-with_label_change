@@ -26,3 +26,9 @@ def save_picture_xml(img_path,xml_path,save_path):
         draw.text((xmin+30, ymin-180), cls, fill=(255, 0, 0), font=Font1)
     final_path = os.path.join(save_path,picture_name[-1])
     img.save(final_path)
+
+if __name__=='__main__':
+    img_path = "../data/demo.jpg"
+    xml_path = "../data/demo.xml"
+    save_path = "../picture/"
+    save_picture_xml(img_path,xml_path,save_path)
