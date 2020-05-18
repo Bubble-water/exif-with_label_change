@@ -2,7 +2,9 @@ import PIL.Image
 import PIL.ImageOps
 import numpy as np
 import PIL
-from with_label_change import horizontal_flip, vertical_flip, rote_90, rote_180, rote_270, read_xml, names_objs
+from utils.write_xml import *
+from utils.picture_show import *
+from utils.with_label_change import *
 
 
 def exif_transpose(img, names, obj):
@@ -120,7 +122,8 @@ def load_image_file(file, anno_path, mode='RGB'):
 
 
 if __name__=='__main__':
-    from write_xml import *
+    # picture_path = sys.argv[1]
+    # annotation_path = sys.argv[2]
     picture_path = "data/demo.jpg"
     annotation_path = "data/demo.xml"
     img, objs = load_image_file(picture_path, annotation_path, mode='RGB')
@@ -130,3 +133,5 @@ if __name__=='__main__':
     im.save(picture_save_path)
     img_info = img.shape
     save_annotations_and_imgs(picture_save_path, anno_save_path, img_info, objs)
+    save_path = "picture"
+    save_picture_xml(picture_save_path,anno_save_path,save_path)
